@@ -49,3 +49,9 @@ yarn install
 
 - `a / b; // should be an error` – говорит что c node_modules все нормально и все пакеты через `yarn install` установлены. Иначе либо пакеты не установлены, либо отключен встроенный плагин в VSCode по лингтингу тайпскрипта.
 - `wrongField # should be an error` – проверяет что установлен `Watchman` в системе; и плагин к VSCode `graphql-for-vscode`.
+
+## И самое главное
+
+Установите к себе на десктоп [Telegram](https://telegram.org/). Через него я буду отправлять куски кода до того, как они будут попадать в ветку на гитхабе. Это позволит меньше печатать и не отстать от группы.
+
+Ссылка для присоединения к закрытой группе в телеграмме: [https://t.me/joinchat/A11zfEpoJ0TEvyTGJxaMIQ](https://t.me/joinchat/A11zfEpoJ0TEvyTGJxaMIQ)
