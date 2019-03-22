@@ -39,7 +39,15 @@ yarn install
 - `vscode-great-icons` – ставит иконки к файлам, чтоб их легче различать
 - `theme-onedark-sublime` – темная тема из атома (работаю на ней)
 - `vscode-language-babel` – в хозяйстве пригодится
+- `emmet` - Emmet в jsx, проверенный способ полюбить jsx
 - есть еще что добавить без чего жизнь совсем плоха?! – открой Pull Request
+
+### Не работает emmet? Добавь в user settings
+```json 
+"emmet.includeLanguages": {
+	"javascript": "javascriptreact"
+},
+```
 
 ## Проверка по скриншоту
 
