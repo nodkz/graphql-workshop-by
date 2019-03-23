@@ -29,8 +29,15 @@ export interface OrderList_orderPagination_items {
   freight: number | null;
 }
 
+export interface OrderList_orderPagination_pageInfo {
+  __typename: "PaginationInfo";
+  pageCount: number | null;
+  currentPage: number;
+}
+
 export interface OrderList_orderPagination {
   __typename: "OrderPagination";
   count: number | null;
   items: (OrderList_orderPagination_items | null)[] | null;
+  pageInfo: OrderList_orderPagination_pageInfo;
 }

@@ -29,10 +29,17 @@ export interface OrderListQuery_viewer_orderPagination_items {
   freight: number | null;
 }
 
+export interface OrderListQuery_viewer_orderPagination_pageInfo {
+  __typename: "PaginationInfo";
+  pageCount: number | null;
+  currentPage: number;
+}
+
 export interface OrderListQuery_viewer_orderPagination {
   __typename: "OrderPagination";
   count: number | null;
   items: (OrderListQuery_viewer_orderPagination_items | null)[] | null;
+  pageInfo: OrderListQuery_viewer_orderPagination_pageInfo;
 }
 
 export interface OrderListQuery_viewer {
@@ -42,4 +49,9 @@ export interface OrderListQuery_viewer {
 
 export interface OrderListQuery {
   viewer: OrderListQuery_viewer | null;
+}
+
+export interface OrderListQueryVariables {
+  page: number;
+  perPage: number;
 }

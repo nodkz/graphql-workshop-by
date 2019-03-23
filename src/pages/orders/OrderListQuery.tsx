@@ -2,18 +2,27 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import OrderList from './OrderList';
 import gql from 'graphql-tag';
-import { OrderListQuery as Q } from './__generated__/OrderListQuery';
+import { OrderListQuery as Q, OrderListQueryVariables as V } from './__generated__/OrderListQuery';
 
-class QueryTyped extends Query<Q> {}
+class QueryTyped extends Query<Q, V> {}
 
-export default class OrderListQuery extends React.Component {
+interface Props extends V {
+  onSetPage: (page: number) => any;
+}
+
+export default class OrderListQuery extends React.Component<Props> {
   render() {
     return (
       <QueryTyped
+        fetchPolicy="cache-and-network"
+        variables={{
+          page: this.props.page || 1,
+          perPage: this.props.perPage || 20,
+        }}
         query={gql`
-          query OrderListQuery {
+          query OrderListQuery($page: Int!, $perPage: Int!) {
             viewer {
-              orderPagination {
+              orderPagination(page: $page, perPage: $perPage) {
                 ...OrderList_orderPagination
               }
             }
@@ -24,7 +33,12 @@ export default class OrderListQuery extends React.Component {
         {({ error, loading, data }) => {
           if (loading) return <div>Loading...</div>;
           if (data && data.viewer && data.viewer.orderPagination) {
-            return <OrderList orderPagination={data.viewer.orderPagination} />;
+            return (
+              <OrderList
+                orderPagination={data.viewer.orderPagination}
+                onSetPage={this.props.onSetPage}
+              />
+            );
           }
         }}
       </QueryTyped>
