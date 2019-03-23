@@ -1,10 +1,10 @@
 import React from 'react';
-import OrderList from './OrderList';
+import OrderListQuery from './OrderListQuery';
 
 export default function OrderRouter() {
   return (
     <div>
-      <OrderList />
+      <OrderListQuery />
     </div>
   );
 }

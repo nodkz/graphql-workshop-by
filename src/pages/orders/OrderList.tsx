@@ -2,47 +2,37 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import OrderRow from './OrderRow';
-import { OrderListQuery } from './__generated__/OrderListQuery';
+import { OrderList_orderPagination } from './__generated__/OrderList_orderPagination';
 
-class QueryTyped extends Query<OrderListQuery> {}
+interface Props {
+  orderPagination: OrderList_orderPagination;
+}
 
-class OrderList extends React.Component {
+class OrderList extends React.Component<Props> {
+  static fragment = gql`
+    fragment OrderList_orderPagination on OrderPagination {
+      count
+      items {
+        ...OrderRow_order
+      }
+    }
+    ${OrderRow.fragment}
+  `;
+
   render() {
+    const { orderPagination } = this.props;
+
+    if (!orderPagination || !orderPagination.items) {
+      return <div>No data</div>;
+    }
+
     return (
-      <QueryTyped
-        query={gql`
-          query OrderListQuery {
-            viewer {
-              orderPagination {
-                count
-                items {
-                  ...OrderRow_order
-                }
-              }
-            }
-          }
-          ${OrderRow.fragment}
-        `}
-      >
-        {({ error, loading, data }) => {
-          if (loading) return <div>Loading...</div>;
-          if (
-            data &&
-            data.viewer &&
-            data.viewer.orderPagination &&
-            data.viewer.orderPagination.items
-          ) {
-            return (
-              <div>
-                {data.viewer.orderPagination.items.map((order, i) => {
-                  if (!order) return <div>Empty element</div>;
-                  return <OrderRow key={i} order={order} />;
-                })}
-              </div>
-            );
-          }
-        }}
-      </QueryTyped>
+      <div>
+        {orderPagination.items.map((order, i) => {
+          if (!order) return <div>Empty element</div>;
+          return <OrderRow key={i} order={order} />;
+        })}
+      </div>
     );
   }
 }
