@@ -1,17 +1,14 @@
-import gql from 'graphql-tag';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createBrowserHistory } from 'history';
+import App from './pages/_app';
+import * as serviceWorker from './serviceWorker';
 
-const a = 1;
-const b = 'c';
+const history = createBrowserHistory();
 
-a / b; // should be an error
+ReactDOM.render(<App history={history} />, document.getElementById('root'));
 
-gql`
-  query Test {
-    viewer {
-      order {
-        customerID
-        wrongField # should be an error
-      }
-    }
-  }
-`;
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
