@@ -21,27 +21,27 @@ export const apolloClient = new ApolloClient({
   link,
 });
 
-const query = gql`
-  {
-    viewer {
-      orderPagination(perPage: 3, page: 1, sort: ORDERID_ASC) {
-        count
-        items {
-          orderID
-          customerID
-          customer {
-            companyName
-            orderList {
-              orderID
-            }
-          }
-        }
-      }
-      regionList {
-        name
-      }
-    }
-  }
-`;
-console.log('DocumentNode:', query);
-apolloClient.query({ query }).then((res: any) => console.log(`Result:`, res));
+// const query = gql___`
+//   {
+//     viewer {
+//       orderPagination(perPage: 3, page: 1, sort: ORDERID_ASC) {
+//         count
+//         items {
+//           orderID
+//           customerID
+//           customer {
+//             companyName
+//             orderList {
+//               orderID
+//             }
+//           }
+//         }
+//       }
+//       regionList {
+//         name
+//       }
+//     }
+//   }
+// `;
+// console.log('DocumentNode:', query);
+// apolloClient.query({ query }).then((res: any) => console.log(`Result:`, res));

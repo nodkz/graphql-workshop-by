@@ -15,14 +15,14 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    // 'graphql/template-strings': [
-    //   'error',
-    //   {
-    //     env: 'literal',
-    //     tagName: 'gql',
-    //     schemaString: fs.readFileSync(path.resolve(__dirname, './schema.graphql'), 'utf8'),
-    //   },
-    // ],
+    'graphql/template-strings': [
+      'error',
+      {
+        env: 'apollo', // 'literal'
+        tagName: 'gql',
+        schemaString: fs.readFileSync(path.resolve(__dirname, './schema.graphql'), 'utf8'),
+      },
+    ],
     'no-underscore-dangle': 0,
     'arrow-body-style': 0,
     'no-unused-expressions': 0,

@@ -4,20 +4,26 @@ import { Container } from 'react-bootstrap';
 import { Router } from 'react-router-dom';
 import Menu from '../components/Menu';
 import AppRoute from './_routes';
+import { ApolloClient } from 'apollo-client';
+import { NormalizedCacheObject } from 'apollo-cache-inmemory';
+import { ApolloProvider } from 'react-apollo';
 
 interface Props {
   history: History;
+  apolloClient: ApolloClient<NormalizedCacheObject>;
 }
 
 class App extends Component<Props> {
   render() {
-    const { history } = this.props;
+    const { history, apolloClient } = this.props;
     return (
       <Container>
-        <Router history={history}>
-          <Menu />
-          <AppRoute />
-        </Router>
+        <ApolloProvider client={apolloClient}>
+          <Router history={history}>
+            <Menu />
+            <AppRoute />
+          </Router>
+        </ApolloProvider>
       </Container>
     );
   }
