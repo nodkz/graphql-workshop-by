@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import App from './pages/_app';
 import * as serviceWorker from './serviceWorker';
+import './apolloClient';
 
 const history = createBrowserHistory();
 
