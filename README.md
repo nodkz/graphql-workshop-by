@@ -72,4 +72,4 @@ yarn install
 
 Установите к себе на десктоп [Telegram](https://telegram.org/). Через него я буду отправлять куски кода до того, как они будут попадать в ветку на гитхабе. Это позволит меньше печатать и не отстать от группы.
 
-Ссылка для присоединения к закрытой группе в телеграмме: [https://t.me/joinchat/A11zfEpoJ0TEvyTGJxaMIQ](https://t.me/joinchat/A11zfEpoJ0TEvyTGJxaMIQ)
+<!-- Ссылка для присоединения к закрытой группе в телеграмме: [https://t.me/joinchat/A11zfEpoJ0TEvyTGJxaMIQ](https://t.me/joinchat/A11zfEpoJ0TEvyTGJxaMIQ) -->
